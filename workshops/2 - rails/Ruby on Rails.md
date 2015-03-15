@@ -161,7 +161,7 @@ There are a wide range of options as to what rails will generate based on the na
 
 To create the “model” in our MVC pattern Rails uses an abstraction layer built on Active Record to enable database flexibility. Active Record is in itself a design pattern, originally conceived by Martin Fowler, where objects contain persistent data, as well as methods or behaviours which operate on that data. Rails has been designed so that if you follow convention,  you will have to do very little work when creating your Active Record Models.
 
-By default, whenever you create a new Rails model, it will inherit the class `ActiveRecord::Base`. This is what allows the mapping of your class to the database instances. It also allows us to access the attributes in the database as if they were instance variables, with the @var notation inside the class and using attribute accessors and readers outside the class.  Active Record provides a very rich API for accessing data from a database, all of which is covered [here](http://guides.rubyonrails.org/active_record_basics.html). We will only be focussing on a small subset of these to get you up and running as quickly as possible.
+By default, whenever you create a new Rails model, it will inherit the class `ActiveRecord::Base`. This is what allows the mapping of your class to the database instances. It also allows us to access the attributes in the database as if they were instance variables, with the @var notation inside the class and using attribute accessors and readers outside the class.  Active Record provides a very rich API for accessing data from a database, all of which is covered here: (http://guides.rubyonrails.org/active_record_basics.html). We will only be focussing on a small subset of these to get you up and running as quickly as possible.
 
 We create objects with the ‘new’ method as we would for a standard Ruby class. When we call new, the model will be created but not saved to the database. This doesn’t happen until we call the method “model.save”. Retrieving data is just as easy as creating it. If we had a student model class and wanted to find a student by email address, this would be as simple as:
 ```ruby
@@ -233,7 +233,7 @@ The helper (or named route if you do it manually) are designed to allow us to cr
 ```
 Where `link name` is what you want the link to display as, the `helper` is the named route (i.e. `edit_post_path` would link to `/posts/:id/edit`) and the `params` are what you wish to pass in to the function (in our example we would use `edit_post_path(post)` to call edit with the appropriate post).
 
-That is a basic overview of routing, and should be sufficient to use in your project, if you wish to learn more about routing in your own time, we suggest consulting the Ruby on Rails guide on the matter [here](http://guides.rubyonrails.org/routing.html).
+That is a basic overview of routing, and should be sufficient to use in your project, if you wish to learn more about routing in your own time, we suggest consulting the Ruby on Rails guide on the matter here: (http://guides.rubyonrails.org/routing.html).
 
 ### Writing Controllers in Rails
 
@@ -274,7 +274,7 @@ class Post < ActiveRecord::Base
   message: "Post is incorrectly formatted!" }
 end
 ```
-Now if we were to try and save this post, it would fail, citing the message we provided. There are quite a few more methods that allow you to control how validation works, to learn more about these please visit [here](http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html).
+Now if we were to try and save this post, it would fail, citing the message we provided. There are quite a few more methods that allow you to control how validation works, to learn more about these please visit here: (http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html).
 
 #### Exercise Three - Core
 
@@ -293,7 +293,7 @@ Remember to run your database migration after you have created the scaffold to u
 
 #### Exercise Five - Core
 
-If you successfully created the scaffold from the previous exercise, you should now be able to start up the rails server and navigate to localhost:3000/posts and see a very basic page that allows us to create a post. You’ll notice though that it doesn’t look particularly great. To fix this we are going to install bootstrap, a framework from twitter that makes it exceptionally easy to make things look pretty. Begin by downloading bootstrap from the following link: [Download Bootstrap](http://getbootstrap.com)
+If you successfully created the scaffold from the previous exercise, you should now be able to start up the rails server and navigate to localhost:3000/posts and see a very basic page that allows us to create a post. You’ll notice though that it doesn’t look particularly great. To fix this we are going to install bootstrap, a framework from twitter that makes it exceptionally easy to make things look pretty. Begin by downloading bootstrap from the following link: (http://getbootstrap.com)
 
 Once downloaded, extract the bootstrap.css and the bootstrap.js file into `app/assets/stylesheets` and `app/assets/javascripts` respectively. Rails will automatically add these files as referenced links in all the html files it generates, so we do not have to add them ourselves. We will now add a title bar and centre the page using bootstrap. Given we do not expect a prerequisite knowledge of HTML, we will walk through how to do this here.
 
