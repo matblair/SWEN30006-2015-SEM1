@@ -75,7 +75,7 @@ Using a simple block diagram, sketch your architecture and assign responsibiliti
 ### Exercise Two - Core
 Specify your Software Architecture using Component Diagrams
 
-Now lets turn your simple block diagrams into UML component diagrams (you may wish to look [here](http://www.uml-diagrams.org/component-diagrams.html) for help with the notation). Your task is to specify the POS system using a UML component diagram.
+Now lets turn your simple block diagrams into UML component diagrams (you may wish to look here: (http://www.uml-diagrams.org/component-diagrams.html) for help with the notation). Your task is to specify the POS system using a UML component diagram.
 
 Here are some questions to help you understand your architecture better.
 - You will need to think carefully about the interfaces between components, the internal structure of components - for example, are there subsystems existing inside your components?

@@ -155,7 +155,7 @@ This will create a migration file and try to associate it to a model with the sa
   rails generate migration AddImageToUser image_url:string
 ```
 
-There are a wide range of options as to what rails will generate based on the names provided, and the best way to learn these is to learn the syntax, this would be a whole tutorial by itself so we encourage you to read the official guide to active record migrations located [here](http://guides.rubyonrails.org/migrations.html) by yourself in your own time.
+There are a wide range of options as to what rails will generate based on the names provided, and the best way to learn these is to learn the syntax, this would be a whole tutorial by itself so we encourage you to read the official guide to active record migrations located here: (http://guides.rubyonrails.org/migrations.html) by yourself in your own time.
 
 #### Using Active Record for Database Manipulation
 

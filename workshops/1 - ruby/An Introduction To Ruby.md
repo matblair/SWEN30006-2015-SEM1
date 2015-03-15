@@ -287,7 +287,7 @@ Regular Expressions are a tool used for expressing a regular language in string 
 
 There is a theoretical underpinning on which these are based and if you are interested feel free to research finite state machines and the relationship between context-free and context dependent grammars in your own time, for this workshop we will focus on practical application.
 
-Regular expressions follow a set syntax that is dependent on the language they are implemented in. Traditionally only 3 operations are allowed, `+`, `|` and `*`. In Ruby, an extended regular expression syntax is used, the options available are shown [here](http://ruby-doc.org//core-2.1.1/Regexp.html). For example, to match a proper noun we could use the expression:
+Regular expressions follow a set syntax that is dependent on the language they are implemented in. Traditionally only 3 operations are allowed, `+`, `|` and `*`. In Ruby, an extended regular expression syntax is used, the options available are shown here: (http://ruby-doc.org//core-2.1.1/Regexp.html). For example, to match a proper noun we could use the expression:
 
 ```ruby
   \A[A-Z][a-z]+\z

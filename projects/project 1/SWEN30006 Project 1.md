@@ -1,5 +1,8 @@
 ##SWEN30006 Project 1
 ###Getting To Grips With Ruby
+#### Revision Notes
+Since it was originally published this specification has been modified to simplify the task of lexponential and logarithmic regressions, provide more examples of where to look for these formulae and extend the due date.
+
 ####The Task
 Your task is to develop a **Ruby** program that will take a file as input, in cvs format containing times and data values, and perform a variety of regressions on the data and come up with an equation of best fit. For example, given the sample data
 
@@ -17,11 +20,11 @@ Your job is to take the provided data files and apply four types of regressions:
 Input will be in the form of a CSV file with the following formats:
 
     time, datapoint, units
-    1425083646, 102.2, mm
-    1425083649, 98.2, mm
-    1425083683, 82.3, mm
+    1, 102.2, mm
+    2, 98.2, mm
+    3, 82.3, mm
 
-Where time is a unix timestamp, datapoint is a float value and units is the unit of measurement of each datapoint. Each of these values will be read in as strings. You will be required to read in the entirety of the CSV and store both the times and data points in an appropriate data structure to perform regressions (for example an array).
+Where time is an integer, datapoint is a float value and units is the unit of measurement of each datapoint. Each of these values will be read in as strings. You will be required to read in the entirety of the CSV and store both the times and data points in an appropriate data structure to perform regressions (for example an array).
 
 You are highly encouraged to make use of Ruby's built in CSV library to read and process the input files, but you can write your own file reader if you wish.
 
@@ -40,14 +43,22 @@ It is up to you how you want to perform regressions. They are simple enough to p
   end
 ````
 
-You are also able to use any external libraries or *gems* that you think are useful to solve the problem. Efficient software re-use is key to being a good engineer, however you must give credit where credit is due and acknowledge any third party sources you incorprate into your project.
+You are also able to use any external libraries or *gems* that you think are useful to solve the problem. Efficient software re-use is key to being a good engineer, however you must give credit where credit is due and acknowledge any third party sources you incorprate into your project. For example, `LinearFit`and `Statsample` both provide regression capabilities.
+
+When regressing exponential and logarithmic data you should apply Least Squares Fitting for the easiest implementation. Examples of these formulae for both exponential and logarithmic regressions can be found here:
+
+- http://mathworld.wolfram.com/LeastSquaresFittingLogarithmic.html
+- http://mathworld.wolfram.com/LeastSquaresFittingExponential.html
+
+> ## On Exponentials and Logarithms
+> Note that not all data will be able to be regressed to fit an exponential or logarithmic equation due to the domain and ranges of those functions. Ruby's Math library will throw a  `Math::DomainError` if these instances occur. You should make sure you catch this exception and handle it.
 
 When regressing polynomials, it is up to you to determine the appropriate polynomial degree between 2 and 10. You should only return the polynomial of best fit within that range. All other regressions can be done for the one output degree provided in the output section.
 
 > #####On Plagiarism
 > We take plagiarism very seriously in this subject. You are not permitted to
 > submit the work of others under your own name. This is an **individual**
-> project. More information can be found [here](https://academichonesty.unimelb.edu.au/advice.html).
+> project. More information can be found here: (https://academichonesty.unimelb.edu.au/advice.html).
 
 ###Summary Of Results
 
@@ -81,15 +92,19 @@ The ruby file you provide should be able to be run through the command line and 
 
 Should read and process the appropriate file and output the results for only the regression type specified. Given we will be running automated tests, not taking note of these requirements will result in your program failing the automated tests.
 
-This example of reading command line variables in Ruby may help. [Stack Overflow](http://stackoverflow.com/questions/4244611/pass-variables-to-Ruby-script-via-command-line)
+This example of reading command line variables in Ruby may help: http://stackoverflow.com/questions/4244611/pass-variables-to-Ruby-script-via-command-line
 
 ###Output format
 
 Your program should output the equation determined by your regression as a string in one of the following formats, you should not output the quotation marks.
+
 For Linear Regressions: “ax + b”, where a and b are the values you have determined
-For polynomial regressions: “ax^n … + c”, where a and c are values you have determined, you will need to print the output to the appropriate degree, so a fourth degree polynomial will be: “ax^4 + bx^3 + cx^2 + d + e”
-For exponential regressions: “e^(ax) + b” where a and b are values you have determined
-For logarithmic regressions: “ln(ax) + b” where a and b are values you have determined.
+For polynomial regressions: “ax^n … + c”, where a and c are values you have µdetermined, you will need to print the output to the appropriate degree, so a fourth degree polynomial will be: “ax^4 + bx^3 + cx^2 + d + e”
+For exponential regressions: “a*e^(b*x)” where a and b are values you have determined
+For logarithmic regressions: “a*ln(x) + b” where a and b are values you have determined.
+
+If you cannot perform a certain type of regression analysis on the file, you should print a message saying: `"Cannot perform TYPE regression on this data"` for example, if you cannot regress exponentially then you would output:
+`"Cannot perform exponential regression on this data"`
 
 For explicit clarity here are a few examples of sample invocations and outputs.
 
