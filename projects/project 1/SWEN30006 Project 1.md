@@ -4,7 +4,7 @@
 Since it was originally published this specification has been modified to simplify the task of lexponential and logarithmic regressions, provide more examples of where to look for these formulae and extend the due date.
 
 ####The Task
-Your task is to develop a **Ruby** program that will take a file as input, in cvs format containing times and data values, and perform a variety of regressions on the data and come up with an equation of best fit. For example, given the sample data
+Your task is to develop a **Ruby** program that will take a file as input, in csv format containing times and data values, and perform a variety of regressions on the data and come up with an equation of best fit. For example, given the sample data
 
     time = [1,2,3,4,5]
     data = [2,4,6,8,10]
