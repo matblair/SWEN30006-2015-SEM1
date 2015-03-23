@@ -1,0 +1,71 @@
+Testing Input 1
+ruby 541635.rb input_1.txt linear
+146853896.6x - 3982719216.32
+ruby 541635.rb input_1.txt polynomial
+2.0x^5 - 3.0x^3 + 19.81x - 12.95
+ruby 541635.rb input_1.txt exponential
+117537.6*e^0.14x
+ruby 541635.rb input_1.txt logarithmic
+3245762759.53ln(x) - 8372714631.54x
+ruby 541635.rb input_1.txt best_fit
+2.0x^5 - 3.0x^3 + 19.81x - 12.95
+
+Testing Input 2
+ruby 541635.rb input_2.txt linear
+1.0x - 120.14
+ruby 541635.rb input_2.txt polynomial
+1.0x - 120.15
+ruby 541635.rb input_2.txt exponential
+Cannot perform exponential regression on this data
+ruby 541635.rb input_2.txt logarithmic
+27.95ln(x) - 171.36x
+ruby 541635.rb input_2.txt best_fit
+1.0x - 120.15
+
+Testing Input 3
+ruby 541635.rb input_3.txt linear
+9.515902129726999e+57x - 3.1930246130597864e+59
+ruby 541635.rb input_3.txt polynomial
+4.603180896495243e+56x^2 - 3.697622492487491e+58x + 4.710636986222547e+59
+ruby 541635.rb input_3.txt exponential
+1.92*e^1.4x
+ruby 541635.rb input_3.txt logarithmic
+1.8239450787822317e+59ln(x) - 5.021900477586574e+59x
+ruby 541635.rb input_3.txt best_fit
+1.92*e^1.4x
+
+Testing Input 4
+ruby 541635.rb input_4.txt linear
+6.4x + 12.1
+ruby 541635.rb input_4.txt polynomial
+6.4x + 12.1
+ruby 541635.rb input_4.txt exponential
+71.29*e^0.03x
+ruby 541635.rb input_4.txt logarithmic
+179.23ln(x) - 316.64x
+ruby 541635.rb input_4.txt best_fit
+6.4x + 12.1
+
+Testing Input 5
+ruby 541635.rb input_5.txt linear
+0.37x + 17.37
+ruby 541635.rb input_5.txt polynomial
+0.01x^2 + 0.95x + 7.49
+ruby 541635.rb input_5.txt exponential
+Cannot perform exponential regression on this data
+ruby 541635.rb input_5.txt logarithmic
+12.86ln(x) - 10.8x
+ruby 541635.rb input_5.txt best_fit
+12.86ln(x) - 10.8x
+
+Testing Input 6
+ruby 541635.rb input_6.txt linear
+0.23x + 27.06
+ruby 541635.rb input_6.txt polynomial
+0.61x + 20.76
+ruby 541635.rb input_6.txt exponential
+26.53*e^0.01x
+ruby 541635.rb input_6.txt logarithmic
+8.2ln(x) + 9.1x
+ruby 541635.rb input_6.txt best_fit
+8.2ln(x) + 9.1x
