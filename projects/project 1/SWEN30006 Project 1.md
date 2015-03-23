@@ -109,17 +109,16 @@ If you cannot perform a certain type of regression analysis on the file, you sho
 For explicit clarity here are a few examples of sample invocations and outputs.
 
 ````bash
-    >> ruby 613625-project-one.rb example.csv linear
-    >> 2x + 3.8
-
-    >> ruby 613625-project-one.rb example.csv polynomial
-    >> 3x^5 + 5x^4 + 2.5x^3 + x^2 + 10
-
-    >> ruby 613625-project-one.rb example.csv exponential
-    >> e^(3.1x) + 21.09
-
-    >> ruby 613625-project-one.rb example.csv logarithmic
-    >> ln(8.1x)+12.9
+    >> ruby 541635.rb input_1.txt linear
+    146853896.6x - 3982719216.32
+    >> ruby 541635.rb input_1.txt polynomial
+    2.0x^5 - 3.0x^3 + 19.81x - 12.95
+    >> ruby 541635.rb input_1.txt exponential
+    117537.6*e^0.14x
+    >> ruby 541635.rb input_1.txt logarithmic
+    3245762759.53ln(x) - 8372714631.54x
+    >> ruby 541635.rb input_2.txt exponential
+    Cannot perform exponential regression on this data
 ````
 
 All program should be to stdout (the terminal window). Your regressions should be returned to at most, *two* decimal places.
