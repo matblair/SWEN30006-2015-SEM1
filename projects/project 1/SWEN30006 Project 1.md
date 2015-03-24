@@ -99,7 +99,7 @@ This example of reading command line variables in Ruby may help: http://stackove
 Your program should output the equation determined by your regression as a string in one of the following formats, you should not output the quotation marks.
 
 For Linear Regressions: “ax + b”, where a and b are the values you have determined
-For polynomial regressions: “ax^n … + c”, where a and c are values you have µdetermined, you will need to print the output to the appropriate degree, so a fourth degree polynomial will be: “ax^4 + bx^3 + cx^2 + d + e”
+For polynomial regressions: “ax^n … + c”, where a and c are values you have µdetermined, you will need to print the output to the appropriate degree, so a fourth degree polynomial will be: “ax^4 + bx^3 + cx^2 + dx + e”
 For exponential regressions: “a*e^(b*x)” where a and b are values you have determined
 For logarithmic regressions: “a*ln(x) + b” where a and b are values you have determined.
 
@@ -116,7 +116,7 @@ For explicit clarity here are a few examples of sample invocations and outputs.
     >> ruby 541635.rb input_1.txt exponential
     117537.6*e^0.14x
     >> ruby 541635.rb input_1.txt logarithmic
-    3245762759.53ln(x) - 8372714631.54x
+    3245762759.53*ln(x) - 8372714631.54x
     >> ruby 541635.rb input_2.txt exponential
     Cannot perform exponential regression on this data
 ````
