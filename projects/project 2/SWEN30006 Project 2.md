@@ -18,6 +18,7 @@ Both data sources will require a different method of data extractions (discusses
 
 - Rainfall Amount (in mm) 
 - Current Temperature
+- Dew Point
 - Wind Direction (if present)
 - Wind Speed (in km/h if present)
 
