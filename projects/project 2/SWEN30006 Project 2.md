@@ -17,7 +17,6 @@ You will be required to import data from two different sources for this project:
 Both data sources will require a different method of data extractions (discusses in detail further in this specification), but have very similar data attributes and fields. You should start by investigating the data that each provider offers and the different formats it comes in. This will guide your design for your class diagram. Specfically, you will be required to store the following data:
 
 - Rainfall Amount (in mm) 
-- Insolation (amount of sunshine received)
 - Current Temperature
 - Wind Direction (if present)
 - Wind Speed (in km/h if present)
