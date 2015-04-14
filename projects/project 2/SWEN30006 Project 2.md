@@ -11,14 +11,15 @@ This project continues the work on building toward our final weather prediction 
 
 You will be required to import data from two different sources for this project: 
 
-- [The Beureu of Meteorology](www.bom.gov.au) - The Australian Government Weather Service
-- [Forcast.io](www.forecast.io) - A 3rd Party Weather Data Aggregator that provices a JSON API. 
+- The Beureu of Meteorology (www.bom.gov.au) - The Australian Government Weather Service
+- Forcast.io (www.forecast.io) - A 3rd Party Weather Data Aggregator that provices a JSON API. 
 
 Both data sources will require a different method of data extractions (discusses in detail further in this specification), but have very similar data attributes and fields. You should start by investigating the data that each provider offers and the different formats it comes in. This will guide your design for your class diagram. Specfically, you will be required to store the following data:
 
 - Rainfall Amount (in mm) 
 - Insolation (amount of sunshine received)
 - Current Temperature
+- Dew Point
 - Wind Direction (if present)
 - Wind Speed (in km/h if present)
 
@@ -54,9 +55,9 @@ Nokogiri allows easy access of elements with css selectors, which for this data 
 
 ### Parsing JSON
 
-Forecast.io, our second data source, requires that you register for an API key [here](https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. You should ensure you update this data as frequently as possible given this API restriction.
+Forecast.io, our second data source, requires that you register for an API key here: (https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. Given you will only be making a call every 10 minutes, this should not be an issue but is something to be mindful of during development. 
 
-After you have registered for an API key, you will find the API documentation located [here](https://developer.forecast.io/docs/v2) to be indispensible. An example of how to download a JSON file into a ruby hash would be:
+After you have registered for an API key, you will find the API documentation located here:(https://developer.forecast.io/docs/v2) to be indispensible. An example of how to download a JSON file into a ruby hash would be:
 
 ````ruby
 require 'nokogiri'
@@ -123,7 +124,7 @@ JSON and HTML Scrapers will be tested manually, as will the web view of data.
 > #####On Plagiarism
 > We take plagiarism very seriously in this subject. You are not permitted to
 > submit the work of others under your own name. This is an **individual**
-> project. More information can be found [here](https://academichonesty.unimelb.edu.au/advice.html).
+> project. More information can be found here: (https://academichonesty.unimelb.edu.au/advice.html).
 
 ##Submission Date
 

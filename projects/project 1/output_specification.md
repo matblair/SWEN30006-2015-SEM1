@@ -6,9 +6,11 @@ If your output does not match these your input **will** fail
 the automated testing. There will be an error margin applied when matching numbers to account for differences in rounding.
 
 ## Linear
+```
 -29.18x + 10
 29.18x + -10
 29.18x - 10
+```
 
 ## Polynomial
 ```
