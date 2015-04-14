@@ -11,8 +11,8 @@ This project continues the work on building toward our final weather prediction 
 
 You will be required to import data from two different sources for this project: 
 
-- The Beureu of Meteorology (www.bom.gov.au) - The Australian Government Weather Service
-- Forcast.io (www.forecast.io) - A 3rd Party Weather Data Aggregator that provices a JSON API. 
+- [The Beureu of Meteorology](www.bom.gov.au) - The Australian Government Weather Service
+- [Forcast.io](www.forecast.io) - A 3rd Party Weather Data Aggregator that provices a JSON API. 
 
 Both data sources will require a different method of data extractions (discusses in detail further in this specification), but have very similar data attributes and fields. You should start by investigating the data that each provider offers and the different formats it comes in. This will guide your design for your class diagram. Specfically, you will be required to store the following data:
 
@@ -54,21 +54,22 @@ Nokogiri allows easy access of elements with css selectors, which for this data 
 
 ### Parsing JSON
 
-Forecast.io, our second data source, requires that you register for an API key here: (https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. Given you will only be making a call every 10 minutes, this should not be an issue but is something to be mindful of during development. 
+Forecast.io, our second data source, requires that you register for an API key [here](https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. You should ensure you update this data as frequently as possible given this API restriction.
 
-After you have registered for an API key, you will find the API documentation located here:(https://developer.forecast.io/docs/v2) to be indispensible. An example of how to download a JSON file into a ruby hash would be:
+After you have registered for an API key, you will find the API documentation located [here](https://developer.forecast.io/docs/v2) to be indispensible. An example of how to download a JSON file into a ruby hash would be:
 
 ````ruby
 require 'nokogiri'
 require 'open-uri'
+require 'json'
 
 # Define the URL
 API_KEY = 'a3df59710af62078ae232f3a8184fbe1'
 LAT_LONG ='37.8267,-122.423' 
-BASE_URL = 'https://api.forecast.io/forecast/'
+BASE_URL = 'https://api.forecast.io/forecast'
 
 # Make sure you down forget the .read on the open file.
-forecast = JSON.pase(open("#{BASE_URL}/#{API_KEY}/#{LAT_LONG}").read)
+forecast = JSON.parse(open("#{BASE_URL}/#{API_KEY}/#{LAT_LONG}").read)
 
 ````
 
@@ -122,8 +123,8 @@ JSON and HTML Scrapers will be tested manually, as will the web view of data.
 > #####On Plagiarism
 > We take plagiarism very seriously in this subject. You are not permitted to
 > submit the work of others under your own name. This is an **individual**
-> project. More information can be found here: (https://academichonesty.unimelb.edu.au/advice.html).
+> project. More information can be found [here](https://academichonesty.unimelb.edu.au/advice.html).
 
 ##Submission Date
 
-This project is due at **11:59 p.m. on the 19th of April.** Any late submissions will incur a 1 mark penalty per day unless you have supporting documents. If you have any issues with submission, please email Mat at mathew.blair@unimelb.edu.au, before the submission date.
+This project is due at **11:59 p.m. on the 24th of April.** Any late submissions will incur a 1 mark penalty per day unless you have supporting documents. If you have any issues with submission, please email Mat at mathew.blair@unimelb.edu.au, before the submission date.

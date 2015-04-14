@@ -1,0 +1,68 @@
+The filename is: exercise_10.html
+The number of lines is 1400
+The number of paragraphs is: 83
+The number of words in each paragraph are: 30, 37, 50, 51, 88, 93, 63, 66, 48, 47, 38, 68, 105, 38, 45, 55, 46, 54, 55, 29, 41, 59, 50, 79, 29, 59, 53, 39, 72, 77, 45, 33, 88, 7, 67, 105, 43, 38, 110, 10, 53, 26, 44, 43, 53, 31, 10, 27, 23, 45, 30, 43, 79, 71, 17, 46, 57, 100, 81, 90, 25, 39, 33, 53, 26, 142, 81, 74, 33, 114, 95, 52, 56, 38, 43, 66, 56, 58, 82, 52, 15, 14, 15 and 14
+This file has no images
+This file links to 30 other HTML files
+Images:[]
+Links:
+Link 1:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#workshop-1-an-introduction-to-ruby
+Link 2:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#week-1
+Link 3:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#from-java-to-ruby--similarities
+Link 4:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#from-java-to-ruby--differences
+Link 5:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#using-ruby
+Link 6:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-1---core
+Link 7:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#unique-ruby-features
+Link 8:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#symbols
+Link 9:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#blocks-procs-and-lambdas
+Link 10:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#control-statements
+Link 11:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#mixins-and-inheritance
+Link 12:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-2---core
+Link 13:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#week-2
+Link 14:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-3---core
+Link 15:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#regular-expressions-pattern-matching
+Link 16:
+ http://ruby-doc.org//core-2.1.1/Regexp.html
+Link 17:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-4---core
+Link 18:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#regular-expressions-in-ruby
+Link 19:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-5---core
+Link 20:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#using-blocks-and-procs
+Link 21:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-6---core
+Link 22:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#sandwich-code
+Link 23:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#file-io
+Link 24:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-7---core
+Link 25:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-8---core
+Link 26:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-9---core
+Link 27:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-10---extension
+Link 28:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-11---extension
+Link 29:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#exercise-12---extension
+Link 30:
+ file:///var/folders/bn/9fgrld1s4d3gw73z2f2jc2gc0000gn/T/89.html#workshop-submission
