@@ -17,7 +17,6 @@ You will be required to import data from two different sources for this project:
 Both data sources will require a different method of data extractions (discusses in detail further in this specification), but have very similar data attributes and fields. You should start by investigating the data that each provider offers and the different formats it comes in. This will guide your design for your class diagram. Specfically, you will be required to store the following data:
 
 - Rainfall Amount (in mm) 
-- Insolation (amount of sunshine received)
 - Current Temperature
 - Dew Point
 - Wind Direction (if present)
@@ -55,7 +54,7 @@ Nokogiri allows easy access of elements with css selectors, which for this data 
 
 ### Parsing JSON
 
-Forecast.io, our second data source, requires that you register for an API key here: (https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. Given you will only be making a call every 10 minutes, this should not be an issue but is something to be mindful of during development. 
+Forecast.io, our second data source, requires that you register for an API key here: (https://developer.forecast.io/register) to start. The API is free to use provided you do not make more than 1000 calls a day. Given this restriction, you should make as many calls up until this API limit per day for the Forecast.io data.
 
 After you have registered for an API key, you will find the API documentation located here:(https://developer.forecast.io/docs/v2) to be indispensible. An example of how to download a JSON file into a ruby hash would be:
 
