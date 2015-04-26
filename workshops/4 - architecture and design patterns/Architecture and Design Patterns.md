@@ -8,7 +8,7 @@ Firstly, you should work in pairs to create a software architecture appropriate 
 #### Structural Decomposition Patterns
 
 - Layered Architectural Pattern - Portable and maintainable with little or no interaction between the parts, and where the parts can be developed separately.
-Function Oriented Pipelining Pattern - Portable and maintainable where streams of data need to be transformed from one stream to another.
+- Function Oriented Pipelining Pattern - Portable and maintainable where streams of data need to be transformed from one stream to another.
 - Client Server Pattern - Manage access to shared data and resources in a situation where a large number of distributed clients wish to access the data and resources.
 - Model-View-Controller - Very similar to the client server architecture. It can also be used in a situations where you need to manage a large number of distributed clients wishing to access shared data and resources.
 
