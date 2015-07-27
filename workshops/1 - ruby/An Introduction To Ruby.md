@@ -1,6 +1,6 @@
 #An Introduction to Ruby
 ## Part 1
-This workshop will focus on introducing you to the Ruby programming language, providing a base for you to then expand on yourself through self guided learning as the need arises.
+This workshop will focus on introducing you to the Ruby programming language, providing a base for you to then expand on yourself through self guided learning as the need arises. The LMS Ruby Resources page has a number of links to useful references and extended exercises.
 
 This workshop has been written with a basic expectation that you are familiar with Object Oriented programming principles and that you have a good working knowledge of Java, as both are prerequisites for enrolment in this subject.
 
@@ -17,38 +17,58 @@ As in Java, all objects in Ruby are strongly typed and memory is managed for you
 
 ###From Java to Ruby : Differences
 
-Whilst there are quite a few similarities, the differences are what will most likely cause issues of confusion as you are beginning to get to grips with Ruby. The biggest difference is that Ruby is a runtime interpreted language. This means that you don’t compile your code, in fact you don’t even have to create a file, you can simple open your console, type `irb` and start entering ruby commands that the interpreter will evaluate for you. Those that have experience with a language like Python or Haskell will be familiar with this notion.
+Whilst there are quite a few similarities, the differences are what will most likely cause issues of confusion as you are beginning to get to grips with Ruby. These differences are outlined in the table below:
 
-As a result of this runtime interpretation you don’t have to cast objects in order to call methods that on them. For example if you pass in a generic object, but you know that the object is a “Person” class that you have created with a method “run()”; in Java you would typecast it as such:
 
-```ruby
-public void makePersonRun(Object obj) {
-  Person p = (Person) obj;
-  p.run();
-}
-```
+Java | Ruby
+-----------|-----------
+Compiled language | Interpreted language
+Static variable typing (require type declaration) | Dynamic variable typing (does not require type declaration)
+Must cast object before calling methods | Don't have to cast objects in order to call methods
+Constructor method takes same name as class | Constructor method uses key word "initialize"
+Uses key word "import" to include libraries | Uses key word "require" to include libraries
+Class variables declared inside class, outside all methods, with "static" | Class variables declared anywhere within class with "@@" 
+Instance variables declared inside class, outside all methods | Instance variables declared anywhere within class with "@"
+Braces surround classes and methods | Classes/methods begin with "class" (for a class) or "def" (for a method) and end with "end"
+Uses keyword "return" to return something | Ruby automatically returns last evaluated expression
 
-Obviously this is unsafe practice and in reality we would want to check if ‘obj’ is the correct class before we typecast and call run, otherwise an exception can be thrown. In ruby we don't have to deal with this, as long as the method is there on the object when it is called, it will run. So, in ruby we would do the call as follows:
+
+Firstly, the biggest difference is that Ruby is a runtime interpreted language. This means that you don’t compile your code, in fact you don’t even have to create a file, you can simple open your console, type `irb` and start entering ruby commands that the interpreter will evaluate for you. Those that have experience with a language like Python or Haskell will be familiar with this notion.
+
+**Methods and classes**
+
+Ruby has different syntax for defining methods and classes, and calling methods: instead of braces surrounding our classes or methods we begin with either “class” or “def” and we show the ending with “end”. For example:
 
 ``` ruby
-person = Person.new
-
-def makePersonRun obj
-	  obj.run
+Class Ball
+	def printMessage
+		puts "This is a ball"
+	end
 end
-
-makePersonRun person
 ```
 
-If the method doesn’t exist on the object that we are calling it on, ruby will `throw` an exception which you will have to deal with, but the core principle is very important. As long as the functionality is there when you try to run it, it will succeed. This principle is key to many of the more advanced features of Ruby as we will discover later.
+Methods are called either with or without braces, and parameters can be passed in with or without braces - “puts("This is a ball")” or “puts "This is a ball"”. 
 
-As you may have noticed in the code blocks given above, there are also differences in syntax for calling methods and for defining methods and classes. Instead of braces surrounding our classes or methods we begin with either “class” or “def” and we show the ending with “end”.
+Note: `puts` is ruby's print method, and automatically adds a newline after excecuting. If you do not want a newline, you can use `print`
 
-Methods are called either with or  without braces, and parameters can be passed in like shown in “makePersonRun person” or with braces, like “makePersonRun(person)”. In Ruby we also don’t need to define types for variables when we assign them: they are just labels for given objects.
+**Variables**
+
+Unlike Java, where each new variable requires a type declaration, the Ruby interpreter simply looks at the type of value you have given to a variable and dynamically works out the variable type. For example, in java, variable declarations would look like:
+
+```ruby
+private String str = "This is a string";
+private int a = 10;
+```
+
+Whereas in ruby, these variable declarations would like like:
+```ruby
+str = "This is a string"
+a = 10
+```
 
 >Ruby does not perform any type checking, so it is up to you to make sure you don’t make any mistakes, this is usually checked in unit testing, though we wont go into too much detail about that.
 
-In Ruby, everything is an object, there are no primitive types which allows for interesting functionality in extending the base classes, like String or Numeric. Ruby’s use of `==` and `equals()` also differs from java (they are the opposite). Finally all variables of a member are private in Ruby and are accessed through methods. Thankfully Ruby provides some helpful syntactic sugar in order to accomplish this, as shown below.
+All member variables in ruby are private and accessed through methods. Ruby provides methods equivalent to getter and setter methods: `attr_reader` and `attr_accessor`. These are demonstrated in the code below:
 
 ```ruby
 require 'date'
@@ -63,24 +83,52 @@ class ExampleClass
   end
 
   def setLastCreated
-		@@last_init ||= DateTime.now
+	@@last_init ||= DateTime.now
   end
 end
 ```
 
-In this example we have quite a few interesting things happening that you should take note of. We have two instance variables in `ExampleClass`, `read_variable` and `read_write_variable`. The `@` character that prefixes them is Ruby’s way of defining an instance variable for a given class. If we wanted to created a class variable, we would use `@@` as in the `last_init` variable. This example also shows the equivalent of an `include` (Objective-C) or `import` (Java) statement, by requiring the `date` library for this given file. As a result, anywhere throughout the file you will be able to use the classes provided by the date library.
-
-Furthermore we see the `attr_reader` and `attr_accessor` helper methods at work, these methods work to generate the equivalent of getter and setter methods for your ruby class. This means that you will be able to make statements like
+These  `attr_reader` and `attr_accessor` helper methods will allow you to make statements like: 
 
     instance_of_example_class.read_write_variable = 10 
 
-The attr_accessor method will have created the required accessor method to write to this variable and call it for you. You can choose to do this yourself if you really like, however it is unnecessary unless you wish to provide conditional access (think security applications).
+This example class `ExampleClass` also demonstrates quite a few interesting things that you should take note of. We have two instance variables in this class: `read_variable` and `read_write_variable`. The `@` character that prefixes them is Ruby’s way of defining an instance variable for a given class. To create a class variable, we would use `@@` as demonstrated by the `last_init` variable. This example also shows the use of `require`, which is ruby's equivalent of an `include` (Objective-C) or `import` (Java) statement, in order to include the `date` library for this given file. As a result, anywhere throughout the file you will be able to use the classes provided by the date library.
 
-The final thing we will mention before we hit you with questions is the use of the `||=` syntax. This is Ruby's way of creating and assigning an instance or class variable if it didn’t already exist. Without this Ruby will attempt to assign a value to a `nil` object and you will have runtime errors.
+Finally, the use of the ||= syntax is Ruby's way of creating and assigning an instance or class variable if it didn’t already exist. Without this Ruby will attempt to assign a value to a nil object (nil is ruby's equivalent to Java's null) and you will have runtime errors.
+
+**Objects**
+
+In Ruby, everything is an object, there are no primitive types which allows for interesting functionality in extending the base classes, like String or Numeric. Ruby’s use of `==` and `equals()` also differs from java: `==` is used to check if objects are equal in terms of their values, whereas `equals()` checks if the parameter object is the same object as the reciever object. 
+
+As a result of the runtime interpretation in ruby, you don’t have to cast objects in order to call methods on them. For example if you pass in a generic object, but you know that the object is a “Person” class that you have created with a method “run()”; in Java you would typecast it as such:
+
+```ruby
+public void makePersonWalk(Object obj) {
+  Person p = (Person) obj;
+  p.walk();
+}
+```
+
+Obviously this is unsafe practice and in reality we would want to check if ‘obj’ is the correct class before we typecast and call run, otherwise an exception can be thrown. In ruby we don't have to deal with this, as long as the method is there on the object when it is called, it will run. So, in ruby we would do the call as follows:
+
+``` ruby
+person = Person.new
+
+def makePersonWalk obj
+	  obj.walk
+end
+
+makePersonWalk person
+```
+
+If the method doesn’t exist on the object that we are calling it on, ruby will `throw` an exception which you will have to deal with, but the core principle is very important. As long as the functionality is there when you try to run it, it will succeed. This principle is key to many of the more advanced features of Ruby as we will discover later.
+
 
 ###Using Ruby
 
-Ruby is a remarkably straightforward language to begin using. In order to help you on your way, we will provide some examples of how to do simple things like create arrays, add variables to arrays and common methods for dealing with strings below. First, beginning with arrays;
+Ruby is a remarkably straightforward language to begin using. In order to help you on your way, we will provide some examples of how to do simple things like create arrays, add variables to arrays and common methods for dealing with strings below. 
+
+**Arrays**
 
 ```ruby
 # -- Defining Arrays -----------------------
@@ -96,7 +144,9 @@ array2.unshift("First")   # Adds element to the start of the array2
 array2.shift()            #Removes the first element, in this case “First"
 ```
 
-As you can see, working with arrays in Ruby is quite straightforward. We recommend looking at the ruby docs to see the full range of methods available on arrays, but the above code should be enough to get you started. Next having a look at some common methods on strings on the next page.
+As you can see, working with arrays in Ruby is quite straightforward. We recommend looking at the ruby docs to see the full range of methods available on arrays, but the above code should be enough to get you started.
+
+**Strings**
 
 ```ruby
 # -- Defining Strings -----------------------
@@ -157,9 +207,9 @@ public class Creature {
 
 ### Unique Ruby Features
 
-Ruby has some unique features that you may not have encountered before, depending on your software language background. It has a way of expressing closures that you cannot do in java (as seen in blocks, procs and lambdas). Ruby also has much more flexibility in terms of extending classes and changing software behaviour at runtime than other languages to do.
+Ruby has some unique features that you may not have encountered before, depending on your software language background. It has a way of expressing closures that you cannot do in java (as seen in blocks, procs and lambdas - to be discussed later). Ruby also has much more flexibility in terms of extending classes and changing software behaviour at runtime than other languages to do.
 
-Once you have written a class, it’s quite straightforward to add methods to it without changing the original class at all. Below we will give some overview of how these features work, however you will be best doing additional reading through the ruby docs in order to ensure you understand them.
+Once you have written a class, it’s quite straightforward to add methods to it without changing the original class at all. Below we will give some overview of how these features work, however you will need to do additional reading through the ruby docs in order to ensure you understand them.
 
 #### Symbols
 Symbols are how Ruby handles constants. Rather than defining an INT Constant to define things like compass directions or identifiers, symbols provide the ability to have a unique constant without worrying about the value assigned to it, they are also immutable, that is they cannot be changed in value. They are, in essence, lightweight strings and as such can also be used for method calls (assuming the symbol is named the same as the method). They are used as such:
@@ -174,10 +224,21 @@ def name_direction(direction)
 end
 ```
 
-Notice how we haven’t defined anywhere the values of `:east` and `:west`. We don`t need to because Ruby garauntees uniqueness of a symbol name and value within a program.
+Notice how we haven’t defined anywhere the values of `:east` and `:west`. We don't need to because Ruby garauntees uniqueness of a symbol name and value within a program. Symbols must begin with `:`.
+
+#### Hashes
+A hash is a collection of key-value pairs, similar to Python dictionaries. An example of a hash is shown below.
+```ruby
+example_hash = {"name" => "Tom", "age" => 30, height => 165 }
+```
+In this example, a key would be "name" and the value corresponding to that key would be "Tom". We can then access the values stored in the hash by using the keys, as follows:
+```ruby
+puts example_hash["name"]  # -> Tom
+```
+Hashes can also be initialized using `example_hash = Hash.new`, which creates an empty hash, and then add new key-value pairs by simply using bracket notation `example_hash["name"] = "Tom"`
 
 #### Blocks, Procs and Lambdas
-A block is a chunk of code enclosed between either braces or the `do` and `end` keywords. In general, braces are preferable for inline blocks and the `do` and `end` keywords are preferable for multiple line blocks. You can think of blocks as anonymous methods that can be passed to methods as if they were parameters to the method.
+A block is just a chunk of code containing instructions, enclosed between either braces or the `do` and `end` keywords. For example, `{ puts "Hello World!" }` is a block. In general, braces are preferable for inline blocks and the `do` and `end` keywords are preferable for multiple line blocks. You can think of blocks as anonymous methods that can be passed to methods as if they were parameters to the method.
 
 You can use blocks to allow for callbacks, to pass around useful pieces of code (much like function pointers in c) or implement iterators. Blocks (and by extension Procs and Lambdas) are closures, that is, they remember the context in which it was defined and will run in that context whenever it is called.
 
@@ -201,7 +262,7 @@ Procs are an object form of blocks. A block itself is not an object, but can eas
 For simplicities sake, we will not delve too heavily into the details of yields, calls and returning on blocks yet as you will not need them immediately, however feel free to read up online and we will go over them further at a later date.
 
 
-### Control Statements
+#### Control Statements
 
 Ruby provides a plethora of options in writing control statements. In particular we are going to discuss case statements and breaks. In Ruby, a case statement is defined as shown in the following example:
 
@@ -224,9 +285,9 @@ case score
 end
 ```
 
-As you can see, the syntax for Ruby’s case statement is very similar to that of Java. The statement states by identifying the variable that we will switch on, in this case it is score. A case will then match provided the expression given (in this case a series of ranges), return true when compared to the variable being switched on, that is, `variable==expression` returns true. As a learning exercise, in your own time experiment with the precedence of case statements, what happens if a variable matches multiple cases?
+As you can see, the syntax for Ruby’s case statement is very similar to that of Java. The statement starts by identifying the variable that we will switch on, in this case it is score. A case will then match when the expression given (in this case a series of ranges) returns true when compared to the variable being switched on, that is, `variable==expression` returns true. As a learning exercise, in your own time experiment with the precedence of case statements, what happens if a variable matches multiple cases?
 
-The control statements for if statements are trivial.
+The control statements for if statements are simple, shown below.
 ```ruby
 if somecondiiton
    puts "first statement"
@@ -237,11 +298,53 @@ else
 end
 ```
 
+#### Loops and Iterators
+
+Ruby supports loops similar to other languages, including a `for` and `while` loop. The ruby syntax for a `for` loop is shown below:
+```ruby
+for counter in 1...5
+	print counter
+end
+# Prints-> 1 2 3 4
+```
+Note: The use of 3 dots `...` means exclude the last value in the range, in this case 5. If you wanted to include the last value, you would use 2 dots `..`
+
+Ruby also includes an `unless` loop which essentially is the opposite of a `while` loop. The following two segments of code demonstrate a while and unless loop, and have the same output:
+```ruby
+# The while loop
+counter = 1
+while counter < 5
+	print counter
+	counter += 1
+end
+# Prints-> 1 2 3 4
+
+# The unless loop
+counter = 1
+until counter == 5
+	print counter
+	counter +=1
+end
+# Prints-> 1 2 3 4
+```
+
+Ruby also supports the use of an iterator. An iterator is a method that repeatedly invokes a block of code. As discussed above, a block is just a bit of code that contains instruction. The simplest iterator is the `loop` iterator, shown below.
+
+```ruby
+i=1
+loop do
+	i+=1
+	puts i
+	break if i > 4
+end
+```
+As discussed earlier, the block can either be encased with `do` and `end` or braces. Other ruby iterators include the `each` iterator that can be used to iterate over each element in an array, and a `times` iterator that can iterate over a block of code a set amount of times. 
+
 ####Mixins and Inheritance
 
 Ruby is an incredibly flexible language, and nothing demonstrates this better than how easy it is to add new functionality to existing classes, even without seeing their source code. Due to Ruby’s runtime nature, adding or overriding method calls on classes is easy once you understand how methods are called. Say for examples sake that you have a class called Ball, and it has a method “bounce”.
 
-Say we then create a subclass called squash_ball that inherits from Ball. Initially if we call the method “bounce” on squash_ball, the ruby interpreter will look for that method on squash_ball and if it can’t find it, it will go up to the superclass and look for the method there. Overriding a method, then, is as easy as defining that method on a squash_ball, that way the interpreter wont have to look any further and will run the first method it finds. This sounds simple now but the power comes when you realise how easy it is to add functionality to base classes, such as Fixnum.
+Say we then create a subclass called SquashBall that inherits from Ball. Initially if we call the method “bounce” on SquashBall, the ruby interpreter will look for that method in SquashBall and if it can’t find it, it will go up to the superclass and look for the method there. Overriding a method, then, is as easy as defining that method in SquashBall, that way the interpreter wont have to look any further and will run the first method it finds. This sounds simple now but the power comes when you realise how easy it is to add functionality to base classes, such as Fixnum.
 
 Imagine you are working with a series of numbers and you wanted an easy method to change them into base 6. Ruby has no default conversion to base 6 on the fix num class, but adding one would be as simple as writing:
 
@@ -255,7 +358,7 @@ end
 
 Now, any classes or methods within that same Ruby file will be able to call the method `convert_to_base_six` on any Fixnum object, no subclassing necessary! Another useful Ruby feature that greatly simplify code creation are Modules and Mixins.
 
-Mixins provide Ruby users with multiple inheritance without the mess of having to worry about who owns the variables etc. We again wont’d delve to heavily into them here, because we want you to get started programming in Ruby (and because there is enough to go on for a whole workshop on using mixing and modules to create good design) but it is important you are aware of their existence and if you feel like extending yourself we encourage you to go read up on them before the next workshop, as we will be discussing them more when we introduce the Rails framework. Now lets finish with a small summary exercise.
+Mixins provide Ruby users with multiple inheritance without the mess of having to worry about who owns the variables etc. We again won't delve to heavily into them here, because we want you to get started programming in Ruby (and because there is enough to go on for a whole workshop on using mixing and modules to create good design) but it is important you are aware of their existence and if you feel like extending yourself we encourage you to go read up on them before the next workshop, as we will be discussing them more when we introduce the Rails framework. Now lets finish with a small summary exercise.
 
 #### Exercise 2 - Core
 Write a function to solve each of the following problems:
@@ -285,9 +388,9 @@ Before we present any new ruby ideas, we have a simple exercise to run through. 
 ### Regular Expressions: Pattern Matching
 Regular Expressions are a tool used for expressing a regular language in string form. Their principle use is in pattern matching, however there is a limit to the kinds of patterns they can match. They can only describe languages that are regular and context-free.
 
-There is a theoretical underpinning on which these are based and if you are interested feel free to research finite state machines and the relationship between context-free and context dependent grammars in your own time, for this workshop we will focus on practical application.
+There is a set of ideas on which these are based and if you are interested feel free to research finite state machines and the relationship between context-free and context dependent grammars in your own time, for this workshop we will focus on practical application.
 
-Regular expressions follow a set syntax that is dependent on the language they are implemented in. Traditionally only 3 operations are allowed, `+`, `|` and `*`. In Ruby, an extended regular expression syntax is used, the options available are shown here: (http://ruby-doc.org//core-2.1.1/Regexp.html). For example, to match a proper noun we could use the expression:
+Traditionally in other languages only 3 operations are allowed for regular expression syntax, `+`, `|` and `*`. In Ruby, an extended regular expression syntax is used, the options available are shown here: (http://ruby-doc.org//core-2.1.1/Regexp.html). For example, to match a proper noun (word that begins with a capital letter) we could use the expression:
 
 ```ruby
   \A[A-Z][a-z]+\z
@@ -317,7 +420,7 @@ To then check if this expression matches, all we need to do is call match with t
   expr.match("Some example string")
 ```
 
-This returns a MatchData object which will contain any strings matched as well as information about the number of matches and numerous methods to access this data. We suggest taking a thorough review of the MatchData class in the RubyDoc for more a better understanding.
+This returns a MatchData object which will contain any strings matched as well as information about the number of matches and numerous methods to access this data. 
 
 You can also use two other methods to check for matches, one of which is on a string, and the other is a variant of the example above, like so:
 
@@ -326,7 +429,7 @@ You can also use two other methods to check for matches, one of which is on a st
   /expression_goes_here/.match("Some example string")
 ```
 
-This returns a MatchData object which will contain any strings matched as well as information about the number of matches and numerous methods to access this data. We suggest taking a thorough review of the MatchData class in the RubyDoc for a better understanding.
+These methods also return a MatchData object which will contain any strings matched as well as information about the number of matches and numerous methods to access this data. We suggest taking a thorough review of the MatchData class in the RubyDoc for a better understanding.
 
 Ruby’s Regex engine also allows back referencing and variable referencing for matching. The back referencing is more advanced and wont be necessary for this workshop however feel free to look it up in your own time. Variable referencing allows us to match expressions to variables to look up later and will make the exercises below considerably easier and works as follows. Say we want to identify the contents of a paragraph tag in html, we could use the following expression:
 ```ruby
@@ -351,7 +454,7 @@ end
 
 This method requires no explicit input argument for the block, however the method yield will fail if a block has not been passed in. It will only work with one argument, as an experiment in your own time feel free to experiment what happens when you try and call yield with more than one block being input.
 
-You can however call that block many times with differing (or the same) arguments and the code you passed as the block will be run many times with the arguments provided. This is the most common way to handle blocks in Ruby, as we often don’t require more than one block being passed in at the same time. The only concern here is we have to assure that we do have a block before calling yield, as yield will fail quite spectacularly without a block to run, we can do this as shown in the example on the next page.
+You can however call that block many times with differing (or the same) arguments and the code you passed as the block will be run many times with the arguments provided. This is the most common way to handle blocks in Ruby, as we often don’t require more than one block being passed in at the same time. The only concern here is we have to assure that we do have a block before calling yield, as yield will fail quite spectacularly without a block to run, we can do this as shown in the example below.
 
 ```ruby
 def with_blocks
@@ -396,7 +499,7 @@ In a lot of situations dealing with iteration we often find ourselves in a situa
 
 Sandwich Code refers to this phenomenon, namely that there are many situations in which you have an opening sequence, then do something, then have a closing sequence.
 
-In this metaphor our opening and closing statements are our Sandwich bread and the meat is the work we are doing in the middle. This kind of design pattern occurs frequently when doing things like reading files or enumerating over data. In fact, we have already been using this idea with our array iteration. When we call `each` on an array and pass in a block of code we are in fact giving Ruby the 'meat' to our operation and it handles the opening and closing sequences, namely counting the number of items in the array, setting up the for loop, iterating through and calling the 'meat' function with the right arguments, then returning the appropriate value. The `each` construct allows us to forget about doing all of the menial work and focus on what we want to do to the data.
+In this metaphor our opening and closing statements are our Sandwich bread and the meat is the work we are doing in the middle. This kind of design pattern occurs frequently when doing things like reading files or enumerating over data. In fact, we have already been using this idea with our array iteration. When we call `each` on an array and pass in a block of code we are in fact giving Ruby the 'meat' to our operation and it handles the opening and closing sequences, namely counting the number of items in the array, setting up the for loop, iterating through and calling the 'meat' function with the right arguments, then returning the appropriate value. The `each` construct allows us to forget about doing all of the basic array manipulation work and focus on what we want to do to the data.
 
 We can write Sandwich functions like this for a large majority of repetitive work we do in Ruby, and it requires a solid understanding of block passing. Once we understand how to pass a block and call it later, we can abstract away the repetitive work (for example, opening a file or reading an image in) and simply pass in the method to manipulate data whenever we need to do so. For example if we define the function manipulate_file function as follows:
 
@@ -481,7 +584,7 @@ Now build on your code further by providing a file overview for the provided HTM
 
 #### Exercise 11 - Extension
 
-Finally, we will provide a plain text overview of the HTML file, taking in the file and creating a new one that has sections for page information, paragraph contents, images and links. This file should be saved as a plain text file called “$FILE_NAME - Summary.txt” where $FILE_NAME is replaced with the name of the HTML file you’re parsing.
+Finally, you should create a plain text overview of the HTML file, taking in the file and creating a new one that has sections for page information, paragraph contents, images and links. This file should be saved as a plain text file called “$FILE_NAME - Summary.txt” where $FILE_NAME is replaced with the name of the HTML file you’re parsing.
 
 #### Exercise 12 - Extension
 As an extension, do some research on the Nokogiri gem. Nokogiri provides a built in HTML parser that allow you the ability to query for paragraphs or query for certain keys. It includes the ability to parse HTML, CSS and XML from either a file or from the web and should make this task quite a bit simpler than your previous program. See if you can re-implement the exercises using Nokogiri, what parts are easier? Are there any parts that are more difficult?
@@ -489,6 +592,6 @@ As an extension, do some research on the Nokogiri gem. Nokogiri provides a built
 ## Workshop Submission
 You are required to submit your answers to all of the exercises marked 'core' in this weeks workshop. You should submit one file, named 'workshop 1 - STUDENTNO.rb' where STUDENTNO is replaced by your student number. For example, if your student number was 12345, your file should be called `workshop 1 - 12345.rb`.
 
-The submission for this workshop is due at **11:59 pm, Sunday the 22nd of March**.
+The submission for this workshop is due at **11:59 pm, Sunday the 23nd of August**.
 
 
